@@ -2,34 +2,94 @@
 title: Nextra Personal Website Template
 ---
 
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function IndexPage() {
   return (
     <div className="relative isolate min-h-[80vh]">
-      <div className="mx-auto max-w-3xl py-32 sm:py-48 lg:py-56">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight dark:text-white text-gray-900 sm:text-4xl ">
-            Nextra Personal Website Template
-          </h2>
-          <p className="p-3">Project using Nextra v3.0.0 alpha version</p>
-          <p>
-            <Link href="https://github.com/namnguyenthanhwork/nextra-personal-website-template" className="link">
-              Github Project
-            </Link>
-            <br />
-            <Link href="https://nextra.site/docs" className="link">
-              Nextra Documentation
-            </Link>
-            <br />
-            <Link href="https://the-guild.dev/blog/nextra-3" className="link">
-              Nextra v3 alpha
-            </Link>
+      <div className="mx-auto max-w-3xl py-12">
+        <div className="mt-10">
+          <h1 className="text-4xl font-bold dark:text-white text-gray-900">
+            Welcome to Aptimus
+          </h1>
+          <p className="mt-4 text-lg dark:text-gray-300 text-gray-700">
+            Aptimus on Aptos serves as the foundational system and gateway for developing Web3 applications. With a focus on providing a straightforward and accessible developer experience, along with a high-quality user experience, Aptimus empowers creators to harness the advantages of blockchain technology with the same ease and convenience that users expect from Web 2.0.
           </p>
+        </div>
+        <div className="mt-10">
+          <h2 className="text-2xl font-bold dark:text-white text-gray-900">
+            Non-custodial account management
+          </h2>
+          <p className="mt-4 text-lg dark:text-gray-300 text-gray-700">
+            To relieve your users from the complexities of Web3 technologies, you can utilize Aptimus to generate an Aptos address using a Web 2.0 login. End users can log in through familiar Web 2.0 systems, such as Google, and seamlessly perform transactions on the Aptos network. The process of creating an Aptos address is managed on their behalf and is linked to their Web 2.0 credentials.
+          </p>
+          <p className="mt-4 text-lg dark:text-gray-300 text-gray-700">
+            Aptimus uses keyless to generate self-custodial Aptos addresses, with
+            just a simple web credential login. Using the OAuth2 OpenID Connect
+            standard, users can sign in with Google, Apple and more. The
+            user's on-chain address is linked to an active JSON Web Token (JWT)
+            from their web credential. Aptimus generates a salt and address, using{" "}
+            <Link
+              href=""
+              className="text-blue-500 underline"
+            >
+              keyless
+            </Link>{" "}
+            proofs that allow a user to sign transactions just by logging into
+            their web credential.
+          </p>
+          <p className="mt-4 text-lg dark:text-gray-300 text-gray-700">
+            Through the Aptimus Developer Portal, you can manage and configure
+            the authentication providers you want your users to use for logging
+            in.
+          </p>
+          <p className="mt-4 text-lg dark:text-gray-300 text-gray-700">
+            Aptimus provides a seamless and secure way to integrate Web3
+            functionalities into your applications while maintaining a positive
+            user experience. By using familiar Web 2.0 login methods, you can
+            ensure an easy transition for your users into the world of
+            decentralized applications.
+          </p>
+          <div className="mt-10">
+            <h2 className="text-2xl font-bold dark:text-white text-gray-900">
+              Sponsored transactions
+            </h2>
+            <p className="mt-4 text-lg dark:text-gray-300 text-gray-700">
+              Aptimus empowers developers to fully sponsor transactions for end
+              users, while the Aptimus Developer Portal offers the essential
+              tools to set up and manage these transactions. By taking advantage
+              of these features, you can cover transaction fees on the Aptos
+              network for your users, simplifying their experience by
+              eliminating the need for them to understand gas fees or even be
+              aware of what an Aptos token is or that they are engaging with a
+              blockchain. This approach allows you to control revenue collection
+              and keeps your users focused on the advantages of your app rather
+              than its Web3 components.
+            </p>
+          </div>
+          <div className="mt-10">
+            <h2 className="text-2xl font-bold dark:text-white text-gray-900">
+              Documentation
+            </h2>
+            <p className="mt-4 text-lg dark:text-gray-300 text-gray-700">
+              To explore how to integrate Aptimus into your applications, take a
+              look at the{" "}
+              <Link href="" className="text-blue-500 underline">
+                Aptimus TypeScript SDK
+              </Link>{" "}
+              for creating transactions directly from your frontend, or leverage
+              the{" "}
+              <Link href="" className="text-blue-500 underline">
+                HTTP API
+              </Link>{" "}
+              methods to interact with Aptimus from your backend services.{" "}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  );
+
+);
 }
 
 <IndexPage />
