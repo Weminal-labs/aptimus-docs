@@ -1,0 +1,80 @@
+export default function AptimusTypeScriptSDK() {
+  return (
+    <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '800px', margin: '0 auto', padding: '20px', color: '#e0e0e0', backgroundColor: '#121212' }}>
+      <h1 style={{ color: '#ffffff', borderBottom: '2px solid #ffffff', paddingBottom: '10px' }}>Aptimus TypeScript SDK</h1>
+
+      <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+        Use the TypeScript SDK to integrate Aptimus into your dApps. By wrapping your main app with the Aptimus context provider, you can make Aptimus functions and state available across all your components.
+      </p>
+
+      <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+        When you integrate Aptimus into your app, users are assigned an Aptos address based on their Web 2.0 authentication process, ensuring each authorized user consistently has the same address. However, since Aptimus generates the address with a unique salt per app, the same user will have different addresses across multiple apps that use Aptimus.
+      </p>
+
+      <h2 style={{ color: '#ffffff', marginTop: '30px', marginBottom: '15px' }}>Getting started</h2>
+
+      <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+        Integrate the Aptimus SDK into your app to offer Aptos blockchain features without the need to handle cryptographic keys. Your users won't need to install a wallet—they simply authenticate through Web 2.0 identity providers like Google, Apple,... and can then execute on-chain transactions directly within your app.
+      </p>
+
+      <h2 style={{ color: '#ffffff', marginTop: '30px', marginBottom: '15px' }}>Install</h2>
+
+      <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+        To begin, add the <code style={{ backgroundColor: '#2a2a2a', padding: '2px 4px', borderRadius: '4px', color: '#e0e0e0' }}>aptimus</code> package to your project using a package manager:
+      </p>
+
+      <div style={{ border: '1px solid #444', borderRadius: '4px', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', borderBottom: '1px solid #444' }}>
+          <button style={{ flex: 1, padding: '10px', border: 'none', background: '#2a2a2a', color: '#e0e0e0', cursor: 'pointer' }}>npm</button>
+          <button style={{ flex: 1, padding: '10px', border: 'none', background: '#2a2a2a', color: '#e0e0e0', cursor: 'pointer' }}>pnpm</button>
+          <button style={{ flex: 1, padding: '10px', border: 'none', background: '#2a2a2a', color: '#e0e0e0', cursor: 'pointer' }}>yarn</button>
+          <button style={{ flex: 1, padding: '10px', border: 'none', background: '#2a2a2a', color: '#e0e0e0', cursor: 'pointer' }}>bun</button>
+        </div>
+        <div style={{ padding: '15px', backgroundColor: '#2a2a2a' }}>
+          <pre style={{ margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-all', color: '#e0e0e0' }}>
+            <code>npm install aptimus</code>
+          </pre>
+        </div>
+      </div>
+
+      <h2 style={{ color: '#ffffff', marginTop: '30px', marginBottom: '15px' }}>React integration</h2>
+
+      <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+        The Aptimus TypeScript SDK comes with React bindings, allowing you to integrate Aptimus into your React application (Aptimus Flow). You can adapt these instructions to include the SDK in applications built with other frameworks.
+      </p>
+
+      <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+        First, wrap your application with the <code style={{ backgroundColor: '#2a2a2a', padding: '2px 4px', borderRadius: '4px', color: '#e0e0e0' }}>AptimusFlowProvider</code> context provider. Import the component at the top level of your project and wrap your app with it. Include the Aptimus API key from the Aptimus Portal, typically using a public API key for frontend access.
+      </p>
+
+      <pre style={{ backgroundColor: '#2a2a2a', padding: '15px', borderRadius: '4px', overflowX: 'auto' }}>
+        <code style={{ color: '#e0e0e0' }}>
+{`import { AptimusFlowProvider } from 'aptimus/react';
+
+function App() {
+  return (
+    <AptimusFlowProvider apiKey="" apiUrl="">
+      <YourApp />
+    </AptimusFlowProvider>
+  );
+}`}
+        </code>
+      </pre>
+
+      <h2 style={{ color: '#ffffff', marginTop: '30px', marginBottom: '15px' }}>Hooks</h2>
+
+      <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+        Aptimus Flow provides the following hooks:
+      </p>
+
+      <ul style={{ paddingLeft: '20px', marginBottom: '15px' }}>
+        <li style={{ marginBottom: '10px' }}>
+          <code style={{ backgroundColor: '#2a2a2a', padding: '2px 4px', borderRadius: '4px', color: '#e0e0e0' }}>useAptimusFlow</code> - Returns the current <code style={{ backgroundColor: '#2a2a2a', padding: '2px 4px', borderRadius: '4px', color: '#e0e0e0' }}>AptimusFlow</code> instance.
+        </li>
+        <li style={{ marginBottom: '10px' }}>
+          <code style={{ backgroundColor: '#2a2a2a', padding: '2px 4px', borderRadius: '4px', color: '#e0e0e0' }}>useKeylessSession</code> - Returns the current authentication state.
+        </li>
+      </ul>
+    </div>
+  );
+}
