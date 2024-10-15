@@ -1,0 +1,100 @@
+export default function ZkpAPIEndpoint() {
+    // Updated color variables
+    const darkBackground = "#0d1117";
+    const lightText = "#c9d1d9";
+    const grayText = "#8b949e";
+    const blueText = "#58a6ff";
+    const redBackground = "#f85149";
+    const codeBackground = "#161b22";
+    const borderColor = "#30363d";
+    const fieldBackground = "#0d1117";
+
+    return (
+        <div style={{ backgroundColor: darkBackground, color: lightText, padding: "20px", fontFamily: "Arial, sans-serif" }}>
+            <h1 style={{ color: lightText }}>Get ZK Proof</h1>
+            <p style={{ color: grayText }}>Get a ZK proof for a given ephemeral keypair with keyless-jwt</p>
+
+            <div style={{ marginTop: "20px" }}>
+                <h2 style={{ color: lightText }}>Endpoint</h2>
+                <div style={{ backgroundColor: codeBackground, padding: "10px", borderRadius: "5px" }}>
+                    <span style={{ color: blueText }}>POST</span> /v1/keyless/zkp
+                </div>
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+                <h2 style={{ color: lightText }}>Authorization</h2>
+                <div style={{ backgroundColor: codeBackground, padding: "10px", borderRadius: "5px", border: `1px solid ${borderColor}` }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ color: lightText }}>keyless-jwt</span>
+                        <span style={{ backgroundColor: redBackground, color: lightText, padding: "2px 6px", borderRadius: "3px", fontSize: "0.8em" }}>Required</span>
+                    </div>
+                    <div style={{ color: grayText, fontSize: "0.9em", marginTop: "5px" }}>token</div>
+                    <div style={{ color: blueText, fontSize: "0.9em", marginTop: "5px" }}>In: header</div>
+                </div>
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+                <h2 style={{ color: lightText }}>Request Body</h2>
+                <div style={{ backgroundColor: codeBackground, padding: "10px", borderRadius: "5px", border: `1px solid ${borderColor}` }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ color: blueText }}>application/json</span>
+                        <span style={{ color: grayText, fontSize: "0.9em" }}>Required</span>
+                    </div>
+                    <div style={{ marginTop: "10px" }}>
+                        <div style={{ marginBottom: "10px", backgroundColor: fieldBackground, padding: "10px", borderRadius: "5px" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                <span style={{ color: lightText }}>network</span>
+                                <span style={{ color: grayText }}>string</span>
+                            </div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>The Aptos network you wish to use.</div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>Default: "testnet"</div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>Value in: "testnet" | "mainnet" | "devnet"</div>
+                        </div>
+                        <div style={{ marginBottom: "10px", backgroundColor: fieldBackground, padding: "10px", borderRadius: "5px" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <span style={{ color: lightText }}>ephemeralKeyPairBase64</span>
+                                <div>
+                                    <span style={{ backgroundColor: redBackground, color: lightText, padding: "2px 6px", borderRadius: "3px", fontSize: "0.8em", marginRight: "5px" }}>Required</span>
+                                    <span style={{ color: grayText }}>string</span>
+                                </div>
+                            </div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>The ephemeral keypair created during the keyless account creation process, encoded as a base64 string.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+                <h2 style={{ color: lightText }}>Response</h2>
+                <h3 style={{ color: lightText }}>200: Successful response</h3>
+                <pre style={{ backgroundColor: codeBackground, padding: "10px", borderRadius: "5px", overflowX: "auto" }}>
+                    <code>
+
+                        {`{
+  "data": {
+  }
+}`}
+                    </code>
+                </pre>
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+                <h2 style={{ color: lightText }}>Example</h2>
+                <pre style={{ backgroundColor: codeBackground, padding: "10px", borderRadius: "5px", overflowX: "auto" }}>
+                    <code>
+
+                        {`curl -X POST "https://aptimus-gas-pool.weminal.com/v1/keyless/zkp" \\
+  -H "keyless-jwt: token" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "network": "testnet",
+    "ephemeralKeyPairBase64": "string"
+  }'`}
+                    </code>
+                </pre>
+            </div>
+        </div>
+    )
+}
+
+ZkpAPIEndpoint()
