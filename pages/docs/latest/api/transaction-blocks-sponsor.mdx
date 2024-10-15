@@ -1,4 +1,4 @@
-export default function ZkpAPIEndpoint() {
+export default function CreateSponsorTransactionAPIEndpoint() {
     // Updated color variables
     const darkBackground = "#0d1117";
     const lightText = "#c9d1d9";
@@ -11,13 +11,13 @@ export default function ZkpAPIEndpoint() {
 
     return (
         <div style={{ backgroundColor: darkBackground, color: lightText, padding: "20px", fontFamily: "Arial, sans-serif" }}>
-            <h1 style={{ color: lightText }}>Get ZK Proof</h1>
-            <p style={{ color: grayText }}>Get a ZK proof for a given ephemeral keypair with keyless-jwt</p>
+            <h1 style={{ color: lightText }}>Create Sponsor Transaction</h1>
+            <p style={{ color: grayText }}>Create a sponsor transaction for a given Aptos transaction</p>
 
             <div style={{ marginTop: "20px" }}>
                 <h2 style={{ color: lightText }}>Endpoint</h2>
                 <div style={{ backgroundColor: codeBackground, padding: "10px", borderRadius: "5px" }}>
-                    <span style={{ color: blueText }}>POST</span> /v1/keyless/zkp
+                    <span style={{ color: blueText }}>POST</span> /v1/transaction-blocks/sponsor
                 </div>
             </div>
 
@@ -52,13 +52,40 @@ export default function ZkpAPIEndpoint() {
                         </div>
                         <div style={{ marginBottom: "10px", backgroundColor: fieldBackground, padding: "10px", borderRadius: "5px" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                <span style={{ color: lightText }}>ephemeralKeyPairBase64</span>
+                                <span style={{ color: lightText }}>transactionBytesBase64</span>
                                 <div>
                                     <span style={{ backgroundColor: redBackground, color: lightText, padding: "2px 6px", borderRadius: "3px", fontSize: "0.8em", marginRight: "5px" }}>Required</span>
                                     <span style={{ color: grayText }}>string</span>
                                 </div>
                             </div>
-                            <div style={{ color: grayText, fontSize: "0.9em" }}>The ephemeral keypair created during the keyless account creation process, encoded as a base64 string.</div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>Transaction to sponsor, encoded as a base64 string.</div>
+                        </div>
+                        <div style={{ marginBottom: "10px", backgroundColor: fieldBackground, padding: "10px", borderRadius: "5px" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <span style={{ color: lightText }}>sender</span>
+                                <div>
+                                    <span style={{ color: grayText }}>string</span>
+                                </div>
+                            </div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>The sender of the transaction.</div>
+                        </div>
+                        <div style={{ marginBottom: "10px", backgroundColor: fieldBackground, padding: "10px", borderRadius: "5px" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <span style={{ color: lightText }}>allowedAddresses</span>
+                                <div>
+                                    <span style={{ color: grayText }}>string[]</span>
+                                </div>
+                            </div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>The allowed addresses to be sponsored for the transaction.</div>
+                        </div>
+                        <div style={{ marginBottom: "10px", backgroundColor: fieldBackground, padding: "10px", borderRadius: "5px" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <span style={{ color: lightText }}>allowedMoveCallTargets</span>
+                                <div>
+                                    <span style={{ color: grayText }}>string[]</span>
+                                </div>
+                            </div>
+                            <div style={{ color: grayText, fontSize: "0.9em" }}>The allowed Move call targets to be sponsored for the transaction.</div>
                         </div>
                     </div>
                 </div>
@@ -72,6 +99,8 @@ export default function ZkpAPIEndpoint() {
 
                         {`{
   "data": {
+    "sponsorAuthBytesBase64": "string",
+    "sponsorSignedTransactionBytesBase64": "string"
   }
 }`}
                     </code>
@@ -83,12 +112,15 @@ export default function ZkpAPIEndpoint() {
                 <pre style={{ backgroundColor: codeBackground, padding: "10px", borderRadius: "5px", overflowX: "auto" }}>
                     <code>
 
-                        {`curl -X POST "https://aptimus-gas-pool.weminal.com/v1/keyless/zkp" \\
+                        {`curl -X POST "https://aptimus-gas-pool.weminal.com/v1/transaction-blocks/sponsor" \\
   -H "keyless-jwt: token" \\
   -H "Content-Type: application/json" \\
   -d '{
     "network": "testnet",
-    "ephemeralKeyPairBase64": "string"
+    "transactionBytesBase64": "string",
+    "sender": "string",
+    "allowedAddresses": ["string"],
+    "allowedMoveCallTargets": ["string"]
   }'`}
                     </code>
                 </pre>
