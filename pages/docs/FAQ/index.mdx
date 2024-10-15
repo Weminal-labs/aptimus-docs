@@ -1,0 +1,80 @@
+export const renderFAQSection = (title, faqs) => (
+    <>
+        <h2>{title}</h2>
+        {faqs.map((faq, index) => (
+            <details key={index}>
+                <summary>{faq.question}</summary>
+                <div>
+                    <p>{faq.answer}</p>
+                </div>
+            </details>
+        ))}
+    </>
+);
+
+export default function FAQPage() {
+    const generalFAQs = [
+        {
+            question: "What is Aptimus?",
+            answer: "Aptimus is a developer tool that simplifies integrating Aptos blockchain features into both new and existing applications. It streamlines the process of creating user accounts (and wallets), handling tasks like sponsored transactions and identity management, and eliminates the complexity of managing blockchain-specific infrastructure."
+        },
+        {
+            question: "How do I register?",
+            answer: "To sign up for Aptimus, visit our website and click on the \"Sign Up\" button."
+        },
+        {
+            question: "Why are pricing and subscription options not visible?",
+            answer: "We are in the beta phase and providing our services for free to early adopters. Pricing and subscription plans will be introduced when we release the full commercial version."
+        },
+        {
+            question: "What should I do if I want to add more people to my team?",
+            answer: "To add team members, sign in to your Aptimus account and go to the team management section. You can then invite new members by entering their email addresses."
+        }
+    ];
+
+    const keylessFAQs = [
+        {
+            question: "What is Keyless?",
+            answer: "Keyless is a feature that allows you to create a secure and seamless user experience without the need for a wallet. It enables users to sign transactions using their email address instead of a private key, making the process faster and more user-friendly."
+        }
+    ];
+
+    const sponsoredTransactionFAQs = [
+        {
+            question: "What are sponsored transactions?",
+            answer: "Sponsored transactions are transactions that are paid for by a third party. This means that the user does not need to pay for the transaction themselves, but the transaction will still be executed on the Aptos blockchain."
+        }
+    ];
+
+    const aptosNameServiceFAQs = [
+        {
+            question: "What is the Aptos Name Service?",
+            answer: "The Aptos Name Service is a decentralized naming system for Aptos blockchain addresses. It allows users to register and manage their own names, which can be used to identify and interact with their accounts and resources on the Aptos blockchain. But this feature will be available in the future."
+        }
+    ];
+
+    const technicalFAQs = [
+        {
+            question: "What are the benefits of using a backend setup?",
+            answer: (
+            <>
+                Some backend use cases include, but are not limited to:<br />
+                • Sponsoring user transactions that have a wallet but not keyless account<br />
+                • Building a custom sponsoring service for your clients
+            </>
+        )
+        }
+    ];
+
+    return (
+        <div>
+            <h1>Aptimus Developer Portal FAQ</h1>
+            {renderFAQSection("General", generalFAQs)}
+            {renderFAQSection("Keyless", keylessFAQs)}
+            {renderFAQSection("Sponsored transactions", sponsoredTransactionFAQs)}
+            {renderFAQSection("Aptos Name Service", aptosNameServiceFAQs)}
+            {renderFAQSection("Technical FAQs", technicalFAQs)}
+        </div>
+    );
+
+}

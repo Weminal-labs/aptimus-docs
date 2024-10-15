@@ -15,11 +15,9 @@
     "href": "/docs/latest",
     "title": "Documentation"
   },
-  "change-log": {
+  "FAQ": {
     "type": "page",
-    "title": "Change Log",
-    "theme": {
-      "layout": "raw"
-    }
+    "href": "/docs/FAQ",
+    "title": "FAQ"
   }
 }
