@@ -6,10 +6,6 @@
       "layout": "raw"
     }
   },
-  "user-guide": {
-    "type": "page",
-    "title": "User Guide"
-  },
   "docs": {
     "type": "page",
     "href": "/docs/latest",

@@ -35,7 +35,6 @@ const config: DocsThemeConfig = {
     labels: "Not found 404"
   },
   toc: {
-    backToTop: true,
     float: true
   },
   logoLink: false,
@@ -72,13 +71,13 @@ const config: DocsThemeConfig = {
 
     return (
       <div className='flex flex-row'>
-        <Link
+        <a
           href="/"
           className="hidden sm:flex items-center text-current no-underline hover:opacity-75 ltr:mr-auto rtl:ml-auto"
         >
-          <Image src="/logo/logo.png" alt="logo" width={45} height={45} />
+          <img src="/logo/logo.png" alt="logo" width={45} height={45} />
           <span className="select-none font-bold ltr:ml-2 rtl:mr-2 inline">Aptimus</span>
-        </Link>
+        </a>
 
         {
           renderSelect &&
@@ -120,7 +119,7 @@ const config: DocsThemeConfig = {
               © {new Date().getFullYear()} Aptimus.{' '}
             </span>
             <div className="flex mt-4 sm:justify-center sm:mt-0">
-              <Link href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+              <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                 <svg
                   className="w-4 h-4"
                   aria-hidden="true"
@@ -135,8 +134,8 @@ const config: DocsThemeConfig = {
                   />
                 </svg>
                 <span className="sr-only">Twitter page</span>
-              </Link>
-              <Link href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+              </a>
+              <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                 <svg
                   className="w-4 h-4"
                   aria-hidden="true"
@@ -151,7 +150,7 @@ const config: DocsThemeConfig = {
                   />
                 </svg>
                 <span className="sr-only">GitHub account</span>
-              </Link>
+              </a>
               
             </div>
           </div>
