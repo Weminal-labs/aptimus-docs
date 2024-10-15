@@ -17,7 +17,7 @@
   },
   "FAQ": {
     "type": "page",
-    "href": "/docs/FAQ",
+    "href": "/FAQ",
     "title": "FAQ"
   }
 }
